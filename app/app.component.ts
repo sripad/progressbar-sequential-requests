@@ -40,8 +40,8 @@ export class AppComponent implements OnInit {
   }
 
   getData() {
-    for (const dispatchAres of this.dispatchAreas) {
-      this.appService.getData(dispatchAres).subscribe(govData => {
+    for (const dispatchArea of this.dispatchAreas) {
+      this.appService.getData(dispatchArea).subscribe(govData => {
         const records = govData["records"] || [];
         this.govArray = this.govArray.concat(records);
       });
