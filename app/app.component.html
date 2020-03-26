@@ -1,0 +1,44 @@
+{{version}}
+
+
+<ul class="heroes">
+  <li *ngFor="let dispatchArea of dispatchAreas">
+    <span class="badge">{{dispatchArea.id}}</span> {{dispatchArea.name}}
+    
+</ul>
+
+<p *ngIf="loader"><ngb-progressbar [type]="loader.progressStatus" [value]="loader.progressValue">{{loader.progressValue}}</ngb-progressbar></p>
+
+<table class="table table-striped table-sm">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Category</th>
+    <th scope="col">Major Group</th>
+    <th scope="col">Products</th>
+    <th scope="col">2017 - 18 Upto Sep 2017</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let gov of dataArray">
+    <th scope="row">{{ gov.id }}</th>
+    <td>{{ gov.category }}</td>
+    <td>{{ gov.major_group }}</td>
+    <td>{{ gov.products }}</td>
+    <td>{{ gov._2017_18__up_to_september_2017_ }}</td>
+  </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-between p-2">
+  <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+  </ngb-pagination>
+
+  Total {{govArray.length}}
+  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+    <option [ngValue]="10">10 items per page</option>
+    <option [ngValue]="50">50 items per page</option>
+    <option [ngValue]="100">100 items per page</option>
+  </select>
+</div>
+
