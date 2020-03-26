@@ -39,15 +39,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getData() {
-    for (const dispatchArea of this.dispatchAreas) {
-      this.appService.getData(dispatchArea).subscribe(govData => {
-        const records = govData["records"] || [];
-        this.govArray = this.govArray.concat(records);
-      });
-    }
-  }
-
   get dataArray(): any[] {
     return this.govArray
       .map((data, i) => ({id: i + 1, ...data}))
